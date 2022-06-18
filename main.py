@@ -20,7 +20,7 @@ client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
 importing all cogs
 for this go to 'cogs' im BASE_DIRECTORY and import all files that end with '.py'
 '''
-for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
+for filename in os.listdir(f"{os.getcwd()}/cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
