@@ -2,6 +2,7 @@ import os, sys
 
 os.environ["PORT"] = "80"
 
+import keep_alive
 import discord
 import json
 import time
@@ -42,6 +43,7 @@ print(os.environ["PORT"], file=sys.stderr)
 
 
 def main():
+    keep_alive.keep_alive()
     client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
