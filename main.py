@@ -1,5 +1,5 @@
 import discord
-import os
+import os, sys
 import json
 import time
 
@@ -29,8 +29,7 @@ for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
 
 
 
-print(os.environ["PORT"])
-
+print(os.environ["PORT"], file=sys.stderr)
 
 
 
