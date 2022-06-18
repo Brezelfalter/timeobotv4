@@ -41,7 +41,7 @@ for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
 
 
 def main():
-    client.run(input("token: "))
+    client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
     main()
