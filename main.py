@@ -1,5 +1,8 @@
-import discord
 import os, sys
+
+os.environ["PORT"] = "80"
+
+import discord
 import json
 import time
 
