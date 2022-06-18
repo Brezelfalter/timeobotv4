@@ -15,6 +15,7 @@ colorama==0.4.4
 crayons==0.4.0
 discord-components==2.1.2
 discord-ui==5.1.6
+dnspython==1.16.0
 duden==0.16.0
 egcd==0.2.0
 filetype==1.0.13
