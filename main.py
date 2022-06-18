@@ -2,7 +2,6 @@ import discord
 import os
 import json
 import time
-import keep_alive
 
 from discord.ext import commands
 
