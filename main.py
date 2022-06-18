@@ -41,8 +41,6 @@ for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
 
 
 def main():
-    keep_alive.keep_alive()
-    time.sleep(1)
     client.run(input("token: "))
     
 if __name__ == "__main__":
