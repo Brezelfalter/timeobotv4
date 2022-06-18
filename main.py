@@ -44,7 +44,7 @@ print(os.path.abspath("main.py"), file=sys.stderr)
 
 def main():
     # keep_alive.keep_alive()
-    asyncio.run( tFunc(client))
+    asyncio.run(lostFunc(client))
     client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
