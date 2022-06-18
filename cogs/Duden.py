@@ -62,5 +62,5 @@ def replace_max_chars(data):
 
 
 
-def setup(client):
-    client.add_cog(Duden(client))
+async def setup(client):
+    await client.add_cog(Duden(client))
