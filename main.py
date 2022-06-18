@@ -1,5 +1,5 @@
 import os, sys
-import keep_alive
+# import keep_alive
 import discord
 import json
 import time
@@ -40,7 +40,7 @@ print(os.getcwd(), file=sys.stderr)
 
 
 def main():
-    keep_alive.keep_alive()
+    # keep_alive.keep_alive()
     client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
