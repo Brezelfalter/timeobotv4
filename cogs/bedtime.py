@@ -50,5 +50,5 @@ class Bedtime(commands.Cog):
 
 
 
-def setup(client):
-    client.add_cog(Bedtime(client))
+async def setup(client):
+    await client.add_cog(Bedtime(client))

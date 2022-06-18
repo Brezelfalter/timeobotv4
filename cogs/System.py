@@ -165,5 +165,5 @@ def create_embed(title, description, color):
     return embed
 
 
-def setup(client):
-    client.add_cog(System(client))
+async def setup(client):
+    await client.add_cog(System(client))
