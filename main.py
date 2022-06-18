@@ -21,10 +21,7 @@ for this go to 'cogs' im BASE_DIRECTORY and import all files that end with '.py'
 '''
 for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
     if filename.endswith(".py"):
-        try:
             client.load_extension(f"cogs.{filename[:-3]}")
-        except:
-            pass
 
 
 
