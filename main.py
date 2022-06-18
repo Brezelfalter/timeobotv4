@@ -22,7 +22,7 @@ for this go to 'cogs' im BASE_DIRECTORY and import all files that end with '.py'
 '''
 for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
     if filename.endswith(".py"):
-            client.load_extension(f"cogs.{filename[:-3]}")
+        client.load_extension(f"cogs.{filename[:-3]}")
 
 
 
@@ -30,7 +30,7 @@ for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
 
 
 
-print(os.environ["PORT"], file=sys.stderr)
+print(os.cwd(), file=sys.stderr)
 
 
 
