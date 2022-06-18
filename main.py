@@ -1,3 +1,4 @@
+from logging import exception
 import os, sys
 # import keep_alive
 import discord
@@ -27,8 +28,8 @@ async def lostFunc(client):
         if filename.endswith(".py"):
             try:
                 await client.load_extension(f"cogs.{filename[:-3]}")
-            except:
-                pass
+            except exception as e:
+                print(e)
 
 
 
