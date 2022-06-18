@@ -30,7 +30,7 @@ for filename in os.listdir(f"{BASE_DIRECTORY}cogs"):
 
 
 
-print(os.cwd(), file=sys.stderr)
+print(os.pwd(), file=sys.stderr)
 
 
 
