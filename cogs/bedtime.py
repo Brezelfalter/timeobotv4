@@ -7,7 +7,6 @@ from __main__ import BASE_DIRECTORY, PREFIX
 from discord.ext import commands, tasks
 from datetime import datetime
 from datetime import timedelta
-from discord_components import DiscordComponents, ComponentsBot, Button
 
 
 
