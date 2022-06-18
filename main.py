@@ -18,7 +18,7 @@ client.remove_command("help")
 
 
 
-async def lostFunc(client):
+def lostFunc(client):
     ''' 
     importing all cogs
     for this go to 'cogs' im BASE_DIRECTORY and import all files that end with '.py'
@@ -46,7 +46,7 @@ print(os.path.abspath("main.py"), file=sys.stderr)
 
 def main():
     # keep_alive.keep_alive()
-    asyncio.run(lostFunc(client))
+    lostFunc(client)
     client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
