@@ -1,7 +1,4 @@
 import os, sys
-
-os.environ["PORT"] = "80"
-
 import keep_alive
 import discord
 import json
