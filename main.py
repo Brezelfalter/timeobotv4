@@ -1,5 +1,4 @@
-import os, sys
-# import keep_alive
+import os
 import discord
 import json
 import time
@@ -31,11 +30,6 @@ def lostFunc(client):
                 print(e)
 
 
-
-
-
-
-print(os.path.abspath("main.py"), file=sys.stderr)
 
 
 
