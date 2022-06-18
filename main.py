@@ -12,7 +12,7 @@ BASE_DIRECTORY = ""
 PREFIX = "-4"
 
 client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
-# client.remove_command("help")
+client.remove_command("help")
 
 
 
