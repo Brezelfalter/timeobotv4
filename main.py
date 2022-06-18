@@ -3,6 +3,7 @@ import os, sys
 import discord
 import json
 import time
+import asyncio 
 
 from discord.ext import commands
 
@@ -43,7 +44,7 @@ print(os.path.abspath("main.py"), file=sys.stderr)
 
 def main():
     # keep_alive.keep_alive()
-    lostFunc(client)
+    asyncio.run( tFunc(client))
     client.run(os.environ.get("TOKEN"))
     
 if __name__ == "__main__":
