@@ -1,0 +1,14 @@
+{
+    "bot_info": {
+        "nickname": "TimeOBot V4",
+        "version": 4.0,
+        "owner": "Brezelfalter #7536",
+        "owner-id": 660883913995976705,
+        "command_blacklist": [
+            "System"
+        ]
+    },
+    "time": {
+        "offset": 7.5
+    }
+}
