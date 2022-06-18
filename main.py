@@ -25,7 +25,7 @@ async def lostFunc(client):
     '''
     for filename in os.listdir(f"{os.path.abspath('.')}/cogs"):
         if filename.endswith(".py"):
-            await client.load_extension(f"cogs.{filename[:-3]}")
+            client.load_extension(f"cogs.{filename[:-3]}")
 
 
 
