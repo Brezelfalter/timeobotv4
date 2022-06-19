@@ -213,7 +213,7 @@ class Time(commands.Cog):
     ///////////////////////////// OWNER ONLY COMMANDS //////////////////////////
     '''
     @commands.is_owner()
-    @commands.command()
+    @commands.command(brief=f"Change the offset to use for time calculations. Usage: `{PREFIX}offset <offset amount>`")
     async def offset(self, ctx, offset_change: float):
         await ctx.channel.purge(limit=1)
         update_data = {
