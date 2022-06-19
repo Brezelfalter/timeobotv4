@@ -32,7 +32,7 @@ class Bedtime(commands.Cog):
             time_now = str(datetime.now())[:-10][11:]
             print(time_now)
             
-            if time_now == "20:00":
+            if time_now == "18:00":
                 channel = await self.client.fetch_channel(967650418043785246)
                 
                 await channel.send(f"**AB INS BETTCHEN FLAUSCHI** <@{702250034879791115}> <@{771010949565120552}>")
