@@ -53,7 +53,7 @@ class Duden(commands.Cog):
 
         await ctx.send(embed=duden_embed, delete_after=30)
 
-    def replace_max_chars(data):
+    def replace_max_chars(self, data):
         data = str(data).replace("[", "").replace("]", "").replace("'", "")
 
         if len(data) > 196:
