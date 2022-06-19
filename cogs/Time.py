@@ -37,10 +37,9 @@ class Time(commands.Cog):
             word.lower()
             wordsList.append(word)
             
-        if message.content.startswith(f"{PREFIX}"):
-            return
-        if message.author == self.client.user:
-            return
+        if message.content.startswith(f"{PREFIX}"): return
+        if message.author == self.client.user: return
+        elif message.author.id == 769888559691464725: return
         elif ":" in wordsList:
             index = wordsList.index(":")
 
@@ -93,7 +92,7 @@ class Time(commands.Cog):
 
 
         if message.author.id == 531068649532817416:
-            new_time = str(get_time(cur_time, float(f"-{OFFSET}"), message))
+            new_time = str(self.get_time(cur_time, float(f"-{OFFSET}"), message))
             new_time = new_time[11:][:-3]
 
             timeEmb = discord.Embed(
@@ -116,7 +115,7 @@ class Time(commands.Cog):
                 f"\n\ngiven time: `{cur_time}` \nrecieved time: `{new_time}` \noffset: `-{OFFSET}h`"
             )
         else:
-            new_time = str(get_time(cur_time, OFFSET, message))
+            new_time = str(self.get_time(cur_time, OFFSET, message))
             new_time = new_time[11:][:-3]
 
             timeEmb = discord.Embed(
@@ -148,7 +147,7 @@ class Time(commands.Cog):
         OFFSET = data["time"]["offset"]
         owner_id = self.client.get_user(OWNERID)
         try: 
-            new_time = str(get_time(cur_time, float(f"{OFFSET}"), ctx))
+            new_time = str(self.get_time(cur_time, float(f"{OFFSET}"), ctx))
             new_time = new_time[11:][:-3]
     
             timeEmb = discord.Embed(
@@ -182,7 +181,7 @@ class Time(commands.Cog):
         OFFSET = data["time"]["offset"]
         owner_id = self.client.get_user(OWNERID)
         try: 
-            new_time = str(get_time(cur_time, float(f"-{OFFSET}"), ctx))
+            new_time = str(self.get_time(cur_time, float(f"-{OFFSET}"), ctx))
             new_time = new_time[11:][:-3]
 
             timeEmb = discord.Embed(
@@ -231,33 +230,12 @@ class Time(commands.Cog):
 
 
 
-def get_time(input_str: str, offset : int, message):
-    if offset == 9.5:
-        logTime(f"User <{message.author}> asked for: {input_str} (Germany)")
-    else:
-        logTime(f"User <{message.author}> asked for: {input_str} (Australian)")
+    def get_time(self, input_str: str, offset : int, message):
+        parsed_time = datetime.strptime(input_str, "%H:%M")
+        parsed_date = datetime.combine(datetime.today(), parsed_time.time())
+        offset = timedelta(hours=offset)
 
-
-    parsed_time = datetime.strptime(input_str, "%H:%M")
-    parsed_date = datetime.combine(datetime.today(), parsed_time.time())
-
-    offset = timedelta(hours=offset)
-
-
-    if offset == 9.5:
-        logTime(f"User <{message.author}> recieved: {str(parsed_date + offset)[11:][:-3]} (Germany)")
-    else:
-        logTime(f"User <{message.author}> recieved: {str(parsed_date + offset)[11:][:-3]} (Australian)")
-    return parsed_date + offset
-        
-def logTime(ctx):
-    timestamp = datetime.now()
-
-    with open(f"{BASE_DIRECTORY}data/time/requests.txt", "a")as file:
-        file.write(f"{timestamp} --- {ctx}\n")
-
-
-
+        return parsed_date + offset
 
 def setup(client):
     client.add_cog(Time(client))
