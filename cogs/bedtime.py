@@ -30,7 +30,8 @@ class Bedtime(commands.Cog):
     async def bulker(self):
         async with self.lock:
             time_now = str(datetime.now())[:-10][11:]
-
+            print(time_now)
+            
             if time_now == "20:00":
                 channel = await self.client.fetch_channel(967650418043785246)
                 
