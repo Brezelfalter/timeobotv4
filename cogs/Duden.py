@@ -40,16 +40,16 @@ class Duden(commands.Cog):
         if word.frequency != None:
             duden_embed.add_field(name="Häufigkeit", value=f"{word.frequency}/5")
         if word.word_separation != None:
-            duden_embed.add_field(name="Trennung", value=self.replace_max_chars(word.word_separation))
+            duden_embed.add_field(name="Trennung", value=self.replace_max_chars(str(word.word_separation)))
         if word.usage != None: 
-            duden_embed.add_field(name="Benutzung", value=self.replace_max_chars(word.usage), inline=False)
+            duden_embed.add_field(name="Benutzung", value=self.replace_max_chars(str(word.usage)), inline=False)
             
         duden_embed.add_field(name="** **", value="** **", inline=False)
         if word.origin != None: 
-            duden_embed.add_field(name="Herkunft", value=self.replace_max_chars(word.origin))
+            duden_embed.add_field(name="Herkunft", value=self.replace_max_chars(str(word.origin)))
         duden_embed.add_field(name="** **", value="** **", inline=False)
         if word.meaning_overview != None: 
-            duden_embed.add_field(name="Bedeutung", value=self.replace_max_chars(word.meaning_overview), inline=False)
+            duden_embed.add_field(name="Bedeutung", value=self.replace_max_chars(str(word.meaning_overview)), inline=False)
 
         await ctx.send(embed=duden_embed, delete_after=30)
 
