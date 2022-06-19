@@ -25,6 +25,22 @@ class Duden(commands.Cog):
         '''
         await ctx.channel.purge(limit=1)
 
+        if any([word == "Brust", word == "brust", word == "Brüste", word == "brüste"]):
+            duden_embed = discord.Embed(
+                title="[d][duden] --- [Duden]",
+                description="** **",
+                colour=discord.Colour.gold()
+            )
+
+            duden_embed.add_field(name="Brust, die", value="Substantiv, feminin")
+            duden_embed.add_field(name="Häufigkeit", value="3/5")
+            duden_embed.add_field(name="** **", value="** **", inline=False)
+            duden_embed.add_field(name="** **", value="** **", inline=False)
+            duden_embed.add_field(name="Bedeutung", value="paariges, halbkugelförmiges Organ (an der Vorderseite des weiblichen Oberkörpers), das die Milchdrüsen enthält und das in der Stillzeit Milch bildet", inline=False)
+            
+            await ctx.send(embed=duden_embed, delete_after=30)
+            return
+
         if word == None:
             word = duden.get_word_of_the_day
         else:
@@ -35,7 +51,7 @@ class Duden(commands.Cog):
             description="** **",
             colour=discord.Colour.gold()
         )
-        
+
         if word.title != None:
             duden_embed.add_field(name=word.title, value=word.part_of_speech)
         if word.frequency != None:
