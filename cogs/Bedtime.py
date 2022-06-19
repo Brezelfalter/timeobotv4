@@ -39,8 +39,8 @@ class Bedtime(commands.Cog):
 
                 time.sleep(60)
                 
-    @commands.command()
-    @commands.cooldown(1, 300, commands.BucketType.user)
+    @commands.is_owner()
+    @commands.command(brief="Reminds Flauschi of her bedtime, in case she forgot. ")
     async def remindFlauschi(self, ctx):
         await ctx.channel.purge(limit=1)
 
