@@ -58,7 +58,7 @@ class Alarm(commands.Cog):
             await ctx.send(f"Fatal error. Can not get error code from url. Please try again with different url.", delete_after=5)
 
         update_data = {
-            f"{ctx.user.id}": {
+            f"{ctx.author.id}": {
                 "time": f"{alarm_time}",
                 "url": f"{url}"
             }
