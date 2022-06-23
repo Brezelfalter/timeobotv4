@@ -4,7 +4,6 @@ import asyncio
 import time
 import requests
 import youtube_dl 
-import validators
 
 from __main__ import BASE_DIRECTORY, PREFIX
 from discord.ext import commands, tasks
