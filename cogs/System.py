@@ -131,7 +131,7 @@ class System(commands.Cog):
         try:
             heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
             created_at = str(os.environ.get("HEROKU_RELEASE_CREATED_AT"))
-            commit = str("HEROKU_SLUG_COMMIT")
+            commit = str(os.environ.get("HEROKU_SLUG_COMMIT"))
 
             version_embed = discord.Embed(
                 title="[Bot information]**                                               **",
