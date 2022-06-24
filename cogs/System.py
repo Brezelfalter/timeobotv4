@@ -130,9 +130,9 @@ class System(commands.Cog):
 
         try:
             heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
-            await ctx.send(f"[version] \n\nHeroku version: **[{heroku_version}]**")
+            await ctx.send(f"[version] \n\nHeroku version: **[{heroku_version}]**", delete_after=5)
         except exception as e:
-            await ctx.send(f"Heroku version not available. \n\n[error]\n{e}")
+            await ctx.send(f"Heroku version not available. \n\n[error]\n{e}", delete_after=5)
 
     @commands.is_owner()
     @commands.command()
