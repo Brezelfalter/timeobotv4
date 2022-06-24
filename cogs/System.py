@@ -126,7 +126,7 @@ class System(commands.Cog):
         Provides the owner with the current heroku deploy version.
         """
         # deletes the message that triggered the command to keep the chat clean
-        await ctx.channel.pruge(limit=1)
+        await ctx.channel.purge(limit=1)
 
         try:
             heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
