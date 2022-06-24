@@ -121,7 +121,7 @@ class System(commands.Cog):
 
     @commands.is_owner()
     @commands.command()
-    async def version(self, ctx):
+    async def info(self, ctx):
         """
         Provides the owner with the current heroku deploy version.
         """
@@ -130,9 +130,22 @@ class System(commands.Cog):
 
         try:
             heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
-            await ctx.send(f"[version] \n\nHeroku version: **[{heroku_version}]**", delete_after=5)
+            created_at = str(os.environ.get("HEROKU_RELEASE_CREATED_AT"))
+            commit = str("HEROKU_SLUG_COMMIT")
+
+            version_embed = discord.Embed(
+                title="[Bot information]**                                               **",
+                description="** **",
+                colour=discord.Colour.blue()
+            )
+            version_embed.add_field(name="Heroku:", value=f"*{heroku_version}*")
+            version_embed.add_field(name="Started at:", value=f"*{created_at}*")
+            version_embed.add_field(name="Commit:", value=f"*{commit}*")
+
+            await ctx.send(embed=version_embed, delete_after=10)
+
         except exception as e:
-            await ctx.send(f"Heroku version not available. \n\n[error]\n{e}", delete_after=5)
+            await ctx.send(f"Information not available. \n\n[error]\n{e}")
 
     @commands.is_owner()
     @commands.command()
