@@ -1,6 +1,8 @@
+from logging import exception
 from pydoc import describe
 import discord
 import json
+import os
 
 from __main__ import BASE_DIRECTORY, PREFIX
 from discord.ext import commands
@@ -116,6 +118,21 @@ class System(commands.Cog):
 
         # sends a message with the latency the client has in ms
         await ctx.send(embed=create_embed("[ping]", 'pong ({0}'.format(round(self.client.latency * 1000)) + "ms)", discord.Color.blue()), delete_after=5)
+
+    @commands.is_owner()
+    @commands.command()
+    async def version(self, ctx):
+        """
+        Provides the owner with the current heroku deploy version.
+        """
+        # deletes the message that triggered the command to keep the chat clean
+        await ctx.channel.pruge(limit=1)
+
+        try:
+            heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
+            await ctx.send(f"Heroku version [{heroku_version}]")
+        except exception as e:
+            await ctx.send(f"Heroku version not available. \n\n[error]\n{e}")
 
     @commands.is_owner()
     @commands.command()
