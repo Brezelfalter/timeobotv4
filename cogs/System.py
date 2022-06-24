@@ -131,16 +131,16 @@ class System(commands.Cog):
         try:
             heroku_version = str(os.environ.get("HEROKU_RELEASE_VERSION"))
             created_at = str(os.environ.get("HEROKU_RELEASE_CREATED_AT"))
-            commit = str(os.environ.get("HEROKU_SLUG_COMMIT"))
+            commit = str(os.environ.get("HEROKU_SLUG_COMMIT"))[:8]
 
             version_embed = discord.Embed(
                 title="[Bot information]**                                               **",
                 description="** **",
                 colour=discord.Colour.blue()
             )
-            version_embed.add_field(name="Heroku:", value=f"*{heroku_version}*")
-            version_embed.add_field(name="Started at:", value=f"*{created_at}*")
-            version_embed.add_field(name="Commit:", value=f"*{commit}*")
+            version_embed.add_field(name="Heroku:", value=f"*{heroku_version}*", inline=False)
+            version_embed.add_field(name="Started at:", value=f"*{created_at}*", inline=False)
+            version_embed.add_field(name="Commit:", value=f"*{commit}*", inline=False)
 
             await ctx.send(embed=version_embed, delete_after=10)
 
