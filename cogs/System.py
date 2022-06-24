@@ -139,7 +139,7 @@ class System(commands.Cog):
                 colour=discord.Colour.blue()
             )
             version_embed.add_field(name="Heroku:", value=f"*{heroku_version}*", inline=False)
-            version_embed.add_field(name="Started at:", value=f"{created_at} [UTC]*", inline=False)
+            version_embed.add_field(name="Started at:", value=f"*{created_at} [UTC]*", inline=False)
             version_embed.add_field(name="Commit:", value=f"*{commit}*", inline=False)
 
             await ctx.send(embed=version_embed, delete_after=10)
