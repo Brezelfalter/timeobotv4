@@ -23,7 +23,7 @@ class UselessReacts(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(brief="Replies to messages that contain 'sekunde', with '1'")
+    @commands.Cog.listener()
     async def on_message(self, message):
         if str(message).lower() == "sekunde":
             time.sleep(1)
