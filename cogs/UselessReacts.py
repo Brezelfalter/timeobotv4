@@ -24,11 +24,11 @@ class UselessReacts(commands.Cog):
         self.client = client
 
     @commands.command(brief="Replies to messages that contain 'sekunde', with '1'")
-    async def on_message(self, ctx):
-        if str(ctx.message).lower() == "sekunde":
+    async def on_message(self, message):
+        if str(message).lower() == "sekunde":
             time.sleep(1)
 
-            await ctx.send("1", delete_after=30)
+            await message.channel.send("1", delete_after=30)
 
 
 def setup(client):
