@@ -23,9 +23,9 @@ class UselessReacts(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(brief="Replies to messages that contain 'sekunde', with '1'")
     async def on_message(self, ctx):
-        if ctx == "sekunde":
+        if str(ctx.message).lower() == "sekunde":
             time.sleep(1)
 
             await ctx.send("1", delete_after=30)
