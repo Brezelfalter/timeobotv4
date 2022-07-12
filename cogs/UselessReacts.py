@@ -26,8 +26,8 @@ class UselessReacts(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         print("message_event: UselessReacts.py")
-        print(message)
-        msg = str(message).lower()
+        print(message.content)
+        msg = str(message.content).lower()
         print(msg)
 
         if msg == "sekunde":
