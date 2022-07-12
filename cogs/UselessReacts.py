@@ -25,15 +25,8 @@ class UselessReacts(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        print("message_event: UselessReacts.py")
-        print(message.content)
-        msg = str(message.content).lower()
-        print(msg)
-
-        if msg == "sekunde":
-            print("HERE")
+        if str(message.content).lower() == "sekunde":
             time.sleep(1)
-            print("triggered if statement: UselessReacts.py")
 
             await message.channel.send("1", delete_after=30)
 
